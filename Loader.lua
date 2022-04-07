@@ -47,6 +47,10 @@ ZORKA.Games = {
 	["113491250"] = {
 		Name = "Phantom Forces",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/Phantom/ClientPH.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Phantom/ClientPH.lua")
+	},
+	["2619619496"] = {
+		Name = "Vape V4 ~ BedWars",
+		Script = ZORKA.Debug and readfile("VapeV4ForRoblox/NewMainScript.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua")
 	}
 }
 
