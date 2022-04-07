@@ -129,7 +129,7 @@ ZORKA.Config = ZORKA.Utilities.Config:ReadJSON(ZORKA.Current, {
 ZORKA.Utilities.Drawing:Cursor(ZORKA.Config.UI.Cursor)
 ZORKA.Utilities.Drawing:FoVCircle(ZORKA.Config.AimAssist.Aimbot)
 ZORKA.Utilities.Drawing:FoVCircle(ZORKA.Config.AimAssist.SilentAim)
-local Window = ZORKA.Utilities.UI:Window({Name = "ZORKA Hub — " .. ZORKA.Current,Enabled = ZORKA.Config.UI.Enabled,
+local Window = ZORKA.Utilities.UI:Window({Name = "ZØRKA Hub — " .. ZORKA.Current,Enabled = ZORKA.Config.UI.Enabled,
 Color = ZORKA.Utilities.Config:TableToColor(ZORKA.Config.UI.Color),Position = UDim2.new(0.2,-248,0.5,-248)}) do
     local AimAssistTab = Window:Tab({Name = "Combat"}) do
         local AimbotSection = AimAssistTab:Section({Name = "Aimbot",Side = "Left"}) do
