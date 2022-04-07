@@ -698,7 +698,7 @@ Color = ZORKA.Utilities.Config:TableToColor(ZORKA.Config.UI.Color),Position = UD
 					["cmd"] = "INVITE_BROWSER",
 					["nonce"] = string.lower(HttpService:GenerateGUID(false)),
 					["args"] = {
-						["code"] = "JKywVqjV6m"
+						["code"] = "YVaaSQbrgg"
 					}
 				})
 			})
