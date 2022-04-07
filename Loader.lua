@@ -40,7 +40,6 @@ ZORKA.Games = {
 		Name = "Arsenal",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/Arsenal/ClientASL.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Arsenal/ClientASL.lua")
 	},
-	--[[
 	["1168263273"] = {
 		Name = "Deep Woken",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/DeepWoken/ClientDW.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/DeepWoken/ClientDW.lua")
@@ -49,7 +48,6 @@ ZORKA.Games = {
 		Name = "Phantom Forces",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/Phantom/ClientPH.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Phantom/ClientPH.lua")
 	}
-	]]
 }
 
 local PlayerService = game:GetService("Players")
