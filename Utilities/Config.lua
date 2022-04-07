@@ -7,7 +7,7 @@ local function Compare(Table,Preset)
 	for Index,Value in pairs(Preset) do
 		if Table[Index] == nil and not table.find(Config.Blacklisted,Value) then
 			Table[Index] = Value
-			ZØRKA.Utilities.UI:Notification2({
+			ZORKA.Utilities.UI:Notification2({
 				Title = tostring(Index) .. " added to config",
 				Color = Color3.new(0.5,1,0.5),
 				Duration = 3
@@ -34,14 +34,14 @@ function Config:TableToColor(Table)
 end
 
 function Config:WriteJSON(Name,Table)
-	if not isfolder("ZØRKA") then makefolder("ZØRKA") end
-	if not isfolder("ZØRKA/Configs") then makefolder("ZØRKA/Configs") end
-	writefile("ZØRKA/Configs/"..Name..".json",HttpService:JSONEncode(Table))
+	if not isfolder("ZORKA") then makefolder("ZORKA") end
+	if not isfolder("ZORKA/Configs") then makefolder("ZORKA/Configs") end
+	writefile("ZORKA/Configs/"..Name..".json",HttpService:JSONEncode(Table))
 end
 
 function Config:ReadJSON(Name,Preset)
-	if not isfile("ZØRKA/Configs/"..Name..".json") then Config:WriteJSON(Name,Preset) return Preset end
-	local DecodedJSON = HttpService:JSONDecode(readfile("ZØRKA/Configs/"..Name..".json"))
+	if not isfile("ZORKA/Configs/"..Name..".json") then Config:WriteJSON(Name,Preset) return Preset end
+	local DecodedJSON = HttpService:JSONDecode(readfile("ZORKA/Configs/"..Name..".json"))
 	Compare(DecodedJSON,Preset)
 	return DecodedJSON
 end
