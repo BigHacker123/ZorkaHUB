@@ -1,4 +1,4 @@
-repeat task.wait() until game.GameId = 1
+repeat task.wait() until game.GameId = 0
 if ZORKA and ZORKA.Loaded then
 	ZORKA.Utilities.UI:Notification({
 		Title = "ZORKA Hub",
