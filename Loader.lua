@@ -32,19 +32,19 @@ ZORKA.Games = {
 		Name = "Blackhawk Rescue Mission 5",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/BRM5/ClientBRM5.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/BRM5/ClientBRM5.lua")
 	},
-	["301549746"] = {
+	["115797356"] = {
 		Name = "Counter Blox",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/CounterBlox/ClientCB.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/CounterBlox/ClientCB.lua")
 	},
-	["286090429"] = {
+	["111958650"] = {
 		Name = "Arsenal",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/Arsenal/ClientASL.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Arsenal/ClientASL.lua")
 	},
-	["1168263273"] = {
+	["1359573625"] = {
 		Name = "Deep Woken",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/DeepWoken/ClientDW.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/DeepWoken/ClientDW.lua")
 	},
-	["292439477"] = {
+	["113491250"] = {
 		Name = "Phantom Forces",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/Phantom/ClientPH.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Phantom/ClientPH.lua")
 	}
