@@ -12,7 +12,7 @@ local Aimbot, SilentAim, NPCFolder,
 GroundTip, AircraftTip = false, nil,
 Workspace.Enemies, nil, nil
 
-ZØRKA.Config = ZØRKA.Utilities.Config:ReadJSON(ZØRKA.Current, {
+ZORKA.Config = ZORKA.Utilities.Config:ReadJSON(ZORKA.Current, {
 	PlayerESP = {
 		AllyColor = {0.3333333432674408,1,1,0,false},
 		EnemyColor = {1,1,1,0,false},
@@ -208,414 +208,414 @@ ZØRKA.Config = ZØRKA.Utilities.Config:ReadJSON(ZØRKA.Current, {
 	}
 })
 
-ZØRKA.Utilities.Drawing:Cursor(ZØRKA.Config.UI.Cursor)
-ZØRKA.Utilities.Drawing:FoVCircle(ZØRKA.Config.AimAssist.Aimbot)
-ZØRKA.Utilities.Drawing:FoVCircle(ZØRKA.Config.AimAssist.SilentAim)
-local Window = ZØRKA.Utilities.UI:Window({Name = "ZØRKA Hub — " .. ZØRKA.Current,Enabled = ZØRKA.Config.UI.Enabled,
-Color = ZØRKA.Utilities.Config:TableToColor(ZØRKA.Config.UI.Color),Position = UDim2.new(0.2,-248,0.5,-248)}) do
+ZORKA.Utilities.Drawing:Cursor(ZORKA.Config.UI.Cursor)
+ZORKA.Utilities.Drawing:FoVCircle(ZORKA.Config.AimAssist.Aimbot)
+ZORKA.Utilities.Drawing:FoVCircle(ZORKA.Config.AimAssist.SilentAim)
+local Window = ZORKA.Utilities.UI:Window({Name = "ZORKA Hub — " .. ZORKA.Current,Enabled = ZORKA.Config.UI.Enabled,
+Color = ZORKA.Utilities.Config:TableToColor(ZORKA.Config.UI.Color),Position = UDim2.new(0.2,-248,0.5,-248)}) do
 	local AimAssistTab = Window:Tab({Name = "Combat"}) do
 		local AimbotSection = AimAssistTab:Section({Name = "Aimbot",Side = "Left"}) do
-			AimbotSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.AimAssist.Aimbot.Enabled,Callback = function(Bool)
-				ZØRKA.Config.AimAssist.Aimbot.Enabled = Bool
+			AimbotSection:Toggle({Name = "Enabled",Value = ZORKA.Config.AimAssist.Aimbot.Enabled,Callback = function(Bool)
+				ZORKA.Config.AimAssist.Aimbot.Enabled = Bool
 			end})
-			AimbotSection:Toggle({Name = "Visibility Check",Value = ZØRKA.Config.AimAssist.Aimbot.WallCheck,Callback = function(Bool)
-				ZØRKA.Config.AimAssist.Aimbot.WallCheck = Bool
+			AimbotSection:Toggle({Name = "Visibility Check",Value = ZORKA.Config.AimAssist.Aimbot.WallCheck,Callback = function(Bool)
+				ZORKA.Config.AimAssist.Aimbot.WallCheck = Bool
 			end})
-			AimbotSection:Keybind({Name = "Keybind",Key = ZØRKA.Config.Binds.Aimbot,Mouse = true,Callback = function(Bool,Key)
-				ZØRKA.Config.Binds.Aimbot = Key or "NONE"
-				Aimbot = ZØRKA.Config.AimAssist.Aimbot.Enabled and Bool
+			AimbotSection:Keybind({Name = "Keybind",Key = ZORKA.Config.Binds.Aimbot,Mouse = true,Callback = function(Bool,Key)
+				ZORKA.Config.Binds.Aimbot = Key or "NONE"
+				Aimbot = ZORKA.Config.AimAssist.Aimbot.Enabled and Bool
 			end})
-			AimbotSection:Slider({Name = "Smoothness",Min = 0,Max = 100,Value = ZØRKA.Config.AimAssist.Aimbot.Sensitivity * 100,Unit = "%",Callback = function(Number)
-				ZØRKA.Config.AimAssist.Aimbot.Sensitivity = Number / 100
+			AimbotSection:Slider({Name = "Smoothness",Min = 0,Max = 100,Value = ZORKA.Config.AimAssist.Aimbot.Sensitivity * 100,Unit = "%",Callback = function(Number)
+				ZORKA.Config.AimAssist.Aimbot.Sensitivity = Number / 100
 			end})
-			AimbotSection:Slider({Name = "Field of View",Min = 0,Max = 500,Value = ZØRKA.Config.AimAssist.Aimbot.FieldOfView,Callback = function(Number)
-				ZØRKA.Config.AimAssist.Aimbot.FieldOfView = Number
+			AimbotSection:Slider({Name = "Field of View",Min = 0,Max = 500,Value = ZORKA.Config.AimAssist.Aimbot.FieldOfView,Callback = function(Number)
+				ZORKA.Config.AimAssist.Aimbot.FieldOfView = Number
 			end})
-			AimbotSection:Dropdown({Name = "Priority",Default = ZØRKA.Config.AimAssist.Aimbot.Priority,List = {
+			AimbotSection:Dropdown({Name = "Priority",Default = ZORKA.Config.AimAssist.Aimbot.Priority,List = {
 				{Name = "Head",Mode = "Toggle",Callback = function(Selected)
-					ZØRKA.Config.AimAssist.Aimbot.Priority = Selected
+					ZORKA.Config.AimAssist.Aimbot.Priority = Selected
 				end},
 				{Name = "HumanoidRootPart",Mode = "Toggle",Callback = function(Selected)
-					ZØRKA.Config.AimAssist.Aimbot.Priority = Selected
+					ZORKA.Config.AimAssist.Aimbot.Priority = Selected
 				end}
 			}})
 		end
 		local AFoVSection = AimAssistTab:Section({Name = "Aimbot FoV Circle",Side = "Left"}) do
-			AFoVSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.AimAssist.Aimbot.Circle.Visible,Callback = function(Bool)
-				ZØRKA.Config.AimAssist.Aimbot.Circle.Visible = Bool
+			AFoVSection:Toggle({Name = "Enabled",Value = ZORKA.Config.AimAssist.Aimbot.Circle.Visible,Callback = function(Bool)
+				ZORKA.Config.AimAssist.Aimbot.Circle.Visible = Bool
 			end})
-			AFoVSection:Toggle({Name = "Filled",Value = ZØRKA.Config.AimAssist.Aimbot.Circle.Filled,Callback = function(Bool)
-				ZØRKA.Config.AimAssist.Aimbot.Circle.Filled = Bool
+			AFoVSection:Toggle({Name = "Filled",Value = ZORKA.Config.AimAssist.Aimbot.Circle.Filled,Callback = function(Bool)
+				ZORKA.Config.AimAssist.Aimbot.Circle.Filled = Bool
 			end})
-			AFoVSection:Colorpicker({Name = "Color",HSVAR = ZØRKA.Config.AimAssist.Aimbot.Circle.Color,Callback = function(HSVAR)
-				ZØRKA.Config.AimAssist.Aimbot.Circle.Color = HSVAR
+			AFoVSection:Colorpicker({Name = "Color",HSVAR = ZORKA.Config.AimAssist.Aimbot.Circle.Color,Callback = function(HSVAR)
+				ZORKA.Config.AimAssist.Aimbot.Circle.Color = HSVAR
 			end})
-			AFoVSection:Slider({Name = "NumSides",Min = 3,Max = 100,Value = ZØRKA.Config.AimAssist.Aimbot.Circle.NumSides,Callback = function(Number)
-				ZØRKA.Config.AimAssist.Aimbot.Circle.NumSides = Number
+			AFoVSection:Slider({Name = "NumSides",Min = 3,Max = 100,Value = ZORKA.Config.AimAssist.Aimbot.Circle.NumSides,Callback = function(Number)
+				ZORKA.Config.AimAssist.Aimbot.Circle.NumSides = Number
 			end})
-			AFoVSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZØRKA.Config.AimAssist.Aimbot.Circle.Thickness,Callback = function(Number)
-				ZØRKA.Config.AimAssist.Aimbot.Circle.Thickness = Number
+			AFoVSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZORKA.Config.AimAssist.Aimbot.Circle.Thickness,Callback = function(Number)
+				ZORKA.Config.AimAssist.Aimbot.Circle.Thickness = Number
 			end})
 		end
 		local SilentAimSection = AimAssistTab:Section({Name = "Silent Aim",Side = "Right"}) do
-			SilentAimSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.AimAssist.SilentAim.Enabled,Callback = function(Bool)
-				ZØRKA.Config.AimAssist.SilentAim.Enabled = Bool
-			end}):Keybind({Key = ZØRKA.Config.Binds.SilentAim,Mouse = true,Callback = function(Bool,Key)
-				ZØRKA.Config.Binds.SilentAim = Key or "NONE"
+			SilentAimSection:Toggle({Name = "Enabled",Value = ZORKA.Config.AimAssist.SilentAim.Enabled,Callback = function(Bool)
+				ZORKA.Config.AimAssist.SilentAim.Enabled = Bool
+			end}):Keybind({Key = ZORKA.Config.Binds.SilentAim,Mouse = true,Callback = function(Bool,Key)
+				ZORKA.Config.Binds.SilentAim = Key or "NONE"
 			end})
-			SilentAimSection:Toggle({Name = "Visibility Check",Value = ZØRKA.Config.AimAssist.SilentAim.WallCheck,Callback = function(Bool)
-				ZØRKA.Config.AimAssist.SilentAim.WallCheck = Bool
+			SilentAimSection:Toggle({Name = "Visibility Check",Value = ZORKA.Config.AimAssist.SilentAim.WallCheck,Callback = function(Bool)
+				ZORKA.Config.AimAssist.SilentAim.WallCheck = Bool
 			end})
-			SilentAimSection:Slider({Name = "Hit Chance",Min = 0,Max = 100,Value = ZØRKA.Config.AimAssist.SilentAim.HitChance,Unit = "%",Callback = function(Number)
-				ZØRKA.Config.AimAssist.SilentAim.HitChance = Number
+			SilentAimSection:Slider({Name = "Hit Chance",Min = 0,Max = 100,Value = ZORKA.Config.AimAssist.SilentAim.HitChance,Unit = "%",Callback = function(Number)
+				ZORKA.Config.AimAssist.SilentAim.HitChance = Number
 			end})
-			SilentAimSection:Slider({Name = "Field of View",Min = 0,Max = 500,Value = ZØRKA.Config.AimAssist.SilentAim.FieldOfView,Callback = function(Number)
-				ZØRKA.Config.AimAssist.SilentAim.FieldOfView = Number
+			SilentAimSection:Slider({Name = "Field of View",Min = 0,Max = 500,Value = ZORKA.Config.AimAssist.SilentAim.FieldOfView,Callback = function(Number)
+				ZORKA.Config.AimAssist.SilentAim.FieldOfView = Number
 			end})
-			SilentAimSection:Dropdown({Name = "Priority",Default = ZØRKA.Config.AimAssist.SilentAim.Priority,List = {
+			SilentAimSection:Dropdown({Name = "Priority",Default = ZORKA.Config.AimAssist.SilentAim.Priority,List = {
 				{Name = "Head",Mode = "Toggle",Callback = function(Selected)
-					ZØRKA.Config.AimAssist.SilentAim.Priority = Selected
+					ZORKA.Config.AimAssist.SilentAim.Priority = Selected
 				end},
 				{Name = "HumanoidRootPart",Mode = "Toggle",Callback = function(Selected)
-					ZØRKA.Config.AimAssist.SilentAim.Priority = Selected
+					ZORKA.Config.AimAssist.SilentAim.Priority = Selected
 				end}
 			}})
 		end
 		local SAFoVSection = AimAssistTab:Section({Name = "Silent Aim FoV Circle",Side = "Right"}) do
-			SAFoVSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.AimAssist.SilentAim.Circle.Visible,Callback = function(Bool)
-				ZØRKA.Config.AimAssist.SilentAim.Circle.Visible = Bool
+			SAFoVSection:Toggle({Name = "Enabled",Value = ZORKA.Config.AimAssist.SilentAim.Circle.Visible,Callback = function(Bool)
+				ZORKA.Config.AimAssist.SilentAim.Circle.Visible = Bool
 			end})
-			SAFoVSection:Toggle({Name = "Filled",Value = ZØRKA.Config.AimAssist.SilentAim.Circle.Filled,Callback = function(Bool)
-				ZØRKA.Config.AimAssist.SilentAim.Circle.Filled = Bool
+			SAFoVSection:Toggle({Name = "Filled",Value = ZORKA.Config.AimAssist.SilentAim.Circle.Filled,Callback = function(Bool)
+				ZORKA.Config.AimAssist.SilentAim.Circle.Filled = Bool
 			end})
-			SAFoVSection:Colorpicker({Name = "Color",HSVAR = ZØRKA.Config.AimAssist.SilentAim.Circle.Color,Callback = function(HSVAR)
-				ZØRKA.Config.AimAssist.SilentAim.Circle.Color = HSVAR
+			SAFoVSection:Colorpicker({Name = "Color",HSVAR = ZORKA.Config.AimAssist.SilentAim.Circle.Color,Callback = function(HSVAR)
+				ZORKA.Config.AimAssist.SilentAim.Circle.Color = HSVAR
 			end})
-			SAFoVSection:Slider({Name = "NumSides",Min = 3,Max = 100,Value = ZØRKA.Config.AimAssist.SilentAim.Circle.NumSides,Callback = function(Number)
-				ZØRKA.Config.AimAssist.SilentAim.Circle.NumSides = Number
+			SAFoVSection:Slider({Name = "NumSides",Min = 3,Max = 100,Value = ZORKA.Config.AimAssist.SilentAim.Circle.NumSides,Callback = function(Number)
+				ZORKA.Config.AimAssist.SilentAim.Circle.NumSides = Number
 			end})
-			SAFoVSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZØRKA.Config.AimAssist.SilentAim.Circle.Thickness,Callback = function(Number)
-				ZØRKA.Config.AimAssist.SilentAim.Circle.Thickness = Number
+			SAFoVSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZORKA.Config.AimAssist.SilentAim.Circle.Thickness,Callback = function(Number)
+				ZORKA.Config.AimAssist.SilentAim.Circle.Thickness = Number
 			end})
 		end
 		local MiscSection = AimAssistTab:Section({Name = "Misc",Side = "Right"}) do
-			MiscSection:Toggle({Name = "Prediction",Value = ZØRKA.Config.AimAssist.Aimbot.Prediction.Enabled,Callback = function(Bool)
-				ZØRKA.Config.AimAssist.Aimbot.Prediction.Enabled = Bool
+			MiscSection:Toggle({Name = "Prediction",Value = ZORKA.Config.AimAssist.Aimbot.Prediction.Enabled,Callback = function(Bool)
+				ZORKA.Config.AimAssist.Aimbot.Prediction.Enabled = Bool
 			end}):ToolTip("Affects Only Aimbot")
-			MiscSection:Slider({Name = "Velocity",Min = 1,Max = 20,Value = ZØRKA.Config.AimAssist.Aimbot.Prediction.Velocity,Callback = function(Number)
-				ZØRKA.Config.AimAssist.Aimbot.Prediction.Velocity = Number
+			MiscSection:Slider({Name = "Velocity",Min = 1,Max = 20,Value = ZORKA.Config.AimAssist.Aimbot.Prediction.Velocity,Callback = function(Number)
+				ZORKA.Config.AimAssist.Aimbot.Prediction.Velocity = Number
 			end}):ToolTip("Prediction Velocity")
-			MiscSection:Dropdown({Name = "Target Mode",Default = {ZØRKA.Config.AimAssist.TargetMode},List = {
+			MiscSection:Dropdown({Name = "Target Mode",Default = {ZORKA.Config.AimAssist.TargetMode},List = {
 				{Name = "Player",Mode = "Button",Callback = function()
-					ZØRKA.Config.AimAssist.TargetMode = "Player"
+					ZORKA.Config.AimAssist.TargetMode = "Player"
 				end},
 				{Name = "NPC",Mode = "Button",Callback = function()
-					ZØRKA.Config.AimAssist.TargetMode = "NPC"
+					ZORKA.Config.AimAssist.TargetMode = "NPC"
 				end}
 			}})
 		end
 	end
 	local VisualsTab = Window:Tab({Name = "Visuals"}) do
 		local GlobalSection = VisualsTab:Section({Name = "Global",Side = "Left"}) do
-			GlobalSection:Colorpicker({Name = "Ally Color",HSVAR = ZØRKA.Config.PlayerESP.AllyColor,Callback = function(HSVAR)
-				ZØRKA.Config.PlayerESP.AllyColor = HSVAR
+			GlobalSection:Colorpicker({Name = "Ally Color",HSVAR = ZORKA.Config.PlayerESP.AllyColor,Callback = function(HSVAR)
+				ZORKA.Config.PlayerESP.AllyColor = HSVAR
 			end})
-			GlobalSection:Colorpicker({Name = "Enemy Color",HSVAR = ZØRKA.Config.PlayerESP.EnemyColor,Callback = function(HSVAR)
-				ZØRKA.Config.PlayerESP.EnemyColor = HSVAR
+			GlobalSection:Colorpicker({Name = "Enemy Color",HSVAR = ZORKA.Config.PlayerESP.EnemyColor,Callback = function(HSVAR)
+				ZORKA.Config.PlayerESP.EnemyColor = HSVAR
 			end})
-			GlobalSection:Toggle({Name = "Team Check",Value = ZØRKA.Config.PlayerESP.TeamCheck,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.TeamCheck = Bool
+			GlobalSection:Toggle({Name = "Team Check",Value = ZORKA.Config.PlayerESP.TeamCheck,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.TeamCheck = Bool
 			end})
-			GlobalSection:Toggle({Name = "Use Team Color",Value = ZØRKA.Config.PlayerESP.TeamColor,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.TeamColor = Bool
+			GlobalSection:Toggle({Name = "Use Team Color",Value = ZORKA.Config.PlayerESP.TeamColor,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.TeamColor = Bool
 			end})
 		end
 		local BoxSection = VisualsTab:Section({Name = "Boxes",Side = "Left"}) do
-			BoxSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.PlayerESP.Box.Enabled,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Box.Enabled = Bool
+			BoxSection:Toggle({Name = "Enabled",Value = ZORKA.Config.PlayerESP.Box.Enabled,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Box.Enabled = Bool
 			end})
-			BoxSection:Toggle({Name = "Filled",Value = ZØRKA.Config.PlayerESP.Box.Filled,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Box.Filled = Bool
+			BoxSection:Toggle({Name = "Filled",Value = ZORKA.Config.PlayerESP.Box.Filled,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Box.Filled = Bool
 			end})
-			BoxSection:Toggle({Name = "Outline",Value = ZØRKA.Config.PlayerESP.Box.Outline,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Box.Outline = Bool
+			BoxSection:Toggle({Name = "Outline",Value = ZORKA.Config.PlayerESP.Box.Outline,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Box.Outline = Bool
 			end})
-			BoxSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZØRKA.Config.PlayerESP.Box.Thickness,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Box.Thickness = Number
+			BoxSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZORKA.Config.PlayerESP.Box.Thickness,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Box.Thickness = Number
 			end})
-			BoxSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.PlayerESP.Box.Transparency,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Box.Transparency = Number
+			BoxSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.PlayerESP.Box.Transparency,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Box.Transparency = Number
 			end})
 			BoxSection:Divider({Text = "Text / Info"})
-			BoxSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.PlayerESP.Box.Info.Enabled,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Box.Info.Enabled = Bool
+			BoxSection:Toggle({Name = "Enabled",Value = ZORKA.Config.PlayerESP.Box.Info.Enabled,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Box.Info.Enabled = Bool
 			end})
-			BoxSection:Toggle({Name = "Autoscale",Value = ZØRKA.Config.PlayerESP.Box.Info.AutoScale,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Box.Info.AutoScale = Bool
+			BoxSection:Toggle({Name = "Autoscale",Value = ZORKA.Config.PlayerESP.Box.Info.AutoScale,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Box.Info.AutoScale = Bool
 			end})
-			BoxSection:Slider({Name = "Size",Min = 14,Max = 28,Value = ZØRKA.Config.PlayerESP.Box.Info.Size,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Box.Info.Size = Number
+			BoxSection:Slider({Name = "Size",Min = 14,Max = 28,Value = ZORKA.Config.PlayerESP.Box.Info.Size,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Box.Info.Size = Number
 			end})
-			BoxSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.PlayerESP.Box.Info.Transparency,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Box.Info.Transparency = Number
+			BoxSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.PlayerESP.Box.Info.Transparency,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Box.Info.Transparency = Number
 			end})
 		end
 		local OoVSection = VisualsTab:Section({Name = "Offscreen Arrows",Side = "Left"}) do
-			OoVSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.PlayerESP.Other.Arrow.Enabled,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Other.Arrow.Enabled = Bool
+			OoVSection:Toggle({Name = "Enabled",Value = ZORKA.Config.PlayerESP.Other.Arrow.Enabled,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Other.Arrow.Enabled = Bool
 			end})
-			OoVSection:Toggle({Name = "Filled",Value = ZØRKA.Config.PlayerESP.Other.Arrow.Filled,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Other.Arrow.Filled = Bool
+			OoVSection:Toggle({Name = "Filled",Value = ZORKA.Config.PlayerESP.Other.Arrow.Filled,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Other.Arrow.Filled = Bool
 			end})
-			OoVSection:Slider({Name = "Height",Min = 14,Max = 28,Value = ZØRKA.Config.PlayerESP.Other.Arrow.Height,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Other.Arrow.Height = Number
+			OoVSection:Slider({Name = "Height",Min = 14,Max = 28,Value = ZORKA.Config.PlayerESP.Other.Arrow.Height,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Other.Arrow.Height = Number
 			end})
-			OoVSection:Slider({Name = "Width",Min = 14,Max = 28,Value = ZØRKA.Config.PlayerESP.Other.Arrow.Width,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Other.Arrow.Width = Number
+			OoVSection:Slider({Name = "Width",Min = 14,Max = 28,Value = ZORKA.Config.PlayerESP.Other.Arrow.Width,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Other.Arrow.Width = Number
 			end})
-			OoVSection:Slider({Name = "Distance From Center",Min = 80,Max = 200,Value = ZØRKA.Config.PlayerESP.Other.Arrow.DistanceFromCenter,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Other.Arrow.DistanceFromCenter = Number
+			OoVSection:Slider({Name = "Distance From Center",Min = 80,Max = 200,Value = ZORKA.Config.PlayerESP.Other.Arrow.DistanceFromCenter,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Other.Arrow.DistanceFromCenter = Number
 			end})
-			OoVSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZØRKA.Config.PlayerESP.Other.Arrow.Thickness,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Other.Arrow.Thickness = Number
+			OoVSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZORKA.Config.PlayerESP.Other.Arrow.Thickness,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Other.Arrow.Thickness = Number
 			end})
-			OoVSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.PlayerESP.Other.Arrow.Transparency,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Other.Arrow.Transparency = Number
+			OoVSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.PlayerESP.Other.Arrow.Transparency,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Other.Arrow.Transparency = Number
 			end})
 		end
 		local HeadSection = VisualsTab:Section({Name = "Head Circles",Side = "Right"}) do
-			HeadSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.PlayerESP.Other.Head.Enabled,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Other.Head.Enabled = Bool
+			HeadSection:Toggle({Name = "Enabled",Value = ZORKA.Config.PlayerESP.Other.Head.Enabled,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Other.Head.Enabled = Bool
 			end})
-			HeadSection:Toggle({Name = "Filled",Value = ZØRKA.Config.PlayerESP.Other.Head.Filled,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Other.Head.Filled = Bool
+			HeadSection:Toggle({Name = "Filled",Value = ZORKA.Config.PlayerESP.Other.Head.Filled,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Other.Head.Filled = Bool
 			end})
-			HeadSection:Toggle({Name = "Autoscale",Value = ZØRKA.Config.PlayerESP.Other.Head.AutoScale,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Other.Head.AutoScale = Bool
+			HeadSection:Toggle({Name = "Autoscale",Value = ZORKA.Config.PlayerESP.Other.Head.AutoScale,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Other.Head.AutoScale = Bool
 			end})
-			HeadSection:Slider({Name = "Radius",Min = 1,Max = 10,Value = ZØRKA.Config.PlayerESP.Other.Head.Radius,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Other.Head.Radius = Number
+			HeadSection:Slider({Name = "Radius",Min = 1,Max = 10,Value = ZORKA.Config.PlayerESP.Other.Head.Radius,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Other.Head.Radius = Number
 			end})
-			HeadSection:Slider({Name = "NumSides",Min = 3,Max = 100,Value = ZØRKA.Config.PlayerESP.Other.Head.NumSides,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Other.Head.NumSides = Number
+			HeadSection:Slider({Name = "NumSides",Min = 3,Max = 100,Value = ZORKA.Config.PlayerESP.Other.Head.NumSides,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Other.Head.NumSides = Number
 			end})
-			HeadSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZØRKA.Config.PlayerESP.Other.Head.Thickness,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Other.Head.Thickness = Number
+			HeadSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZORKA.Config.PlayerESP.Other.Head.Thickness,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Other.Head.Thickness = Number
 			end})
-			HeadSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.PlayerESP.Other.Head.Transparency,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Other.Head.Transparency = Number
+			HeadSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.PlayerESP.Other.Head.Transparency,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Other.Head.Transparency = Number
 			end})
 		end
 		local TracerSection = VisualsTab:Section({Name = "Tracers",Side = "Right"}) do
-			TracerSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.PlayerESP.Other.Tracer.Enabled,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Other.Tracer.Enabled = Bool
+			TracerSection:Toggle({Name = "Enabled",Value = ZORKA.Config.PlayerESP.Other.Tracer.Enabled,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Other.Tracer.Enabled = Bool
 			end})
 			TracerSection:Dropdown({Name = "Mode",Default = {
-				ZØRKA.Config.PlayerESP.Other.Tracer.From == "ScreenBottom" and "From Bottom" or "From Mouse"
+				ZORKA.Config.PlayerESP.Other.Tracer.From == "ScreenBottom" and "From Bottom" or "From Mouse"
 			},List = {
 				{Name = "From Bottom",Mode = "Button",Callback = function()
-					ZØRKA.Config.PlayerESP.Other.Tracer.From = "ScreenBottom"
+					ZORKA.Config.PlayerESP.Other.Tracer.From = "ScreenBottom"
 				end},
 				{Name = "From Mouse",Mode = "Button",Callback = function()
-					ZØRKA.Config.PlayerESP.Other.Tracer.From = "Mouse"
+					ZORKA.Config.PlayerESP.Other.Tracer.From = "Mouse"
 				end}
 			}})
-			TracerSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZØRKA.Config.PlayerESP.Other.Tracer.Thickness,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Other.Tracer.Thickness = Number
+			TracerSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZORKA.Config.PlayerESP.Other.Tracer.Thickness,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Other.Tracer.Thickness = Number
 			end})
-			TracerSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.PlayerESP.Other.Tracer.Transparency,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Other.Tracer.Transparency = Number
+			TracerSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.PlayerESP.Other.Tracer.Transparency,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Other.Tracer.Transparency = Number
 			end})
 		end
 		local HighlightSection = VisualsTab:Section({Name = "Highlights",Side = "Right"}) do
-			HighlightSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.PlayerESP.Highlight.Enabled,Callback = function(Bool)
-				ZØRKA.Config.PlayerESP.Highlight.Enabled = Bool
+			HighlightSection:Toggle({Name = "Enabled",Value = ZORKA.Config.PlayerESP.Highlight.Enabled,Callback = function(Bool)
+				ZORKA.Config.PlayerESP.Highlight.Enabled = Bool
 			end})
-			HighlightSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.PlayerESP.Highlight.Transparency,Callback = function(Number)
-				ZØRKA.Config.PlayerESP.Highlight.Transparency = Number
+			HighlightSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.PlayerESP.Highlight.Transparency,Callback = function(Number)
+				ZORKA.Config.PlayerESP.Highlight.Transparency = Number
 			end})
-			HighlightSection:Colorpicker({Name = "Outline Color",HSVAR = ZØRKA.Config.PlayerESP.Highlight.OutlineColor,Callback = function(HSVAR)
-				ZØRKA.Config.PlayerESP.Highlight.OutlineColor = HSVAR
+			HighlightSection:Colorpicker({Name = "Outline Color",HSVAR = ZORKA.Config.PlayerESP.Highlight.OutlineColor,Callback = function(HSVAR)
+				ZORKA.Config.PlayerESP.Highlight.OutlineColor = HSVAR
 			end})
 		end
 	end
 	local NPCVisualsTab = Window:Tab({Name = "NPC Visuals"}) do
-		NPCVisualsTab:Colorpicker({Name = "Enemy Color",HSVAR = ZØRKA.Config.NPCESP.EnemyColor,Callback = function(HSVAR)
-			ZØRKA.Config.NPCESP.EnemyColor = HSVAR
+		NPCVisualsTab:Colorpicker({Name = "Enemy Color",HSVAR = ZORKA.Config.NPCESP.EnemyColor,Callback = function(HSVAR)
+			ZORKA.Config.NPCESP.EnemyColor = HSVAR
 		end})
 		local BoxSection = NPCVisualsTab:Section({Name = "Boxes",Side = "Left"}) do
-			BoxSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.NPCESP.Box.Enabled,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Box.Enabled = Bool
+			BoxSection:Toggle({Name = "Enabled",Value = ZORKA.Config.NPCESP.Box.Enabled,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Box.Enabled = Bool
 			end})
-			BoxSection:Toggle({Name = "Filled",Value = ZØRKA.Config.NPCESP.Box.Filled,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Box.Filled = Bool
+			BoxSection:Toggle({Name = "Filled",Value = ZORKA.Config.NPCESP.Box.Filled,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Box.Filled = Bool
 			end})
-			BoxSection:Toggle({Name = "Outline",Value = ZØRKA.Config.NPCESP.Box.Outline,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Box.Outline = Bool
+			BoxSection:Toggle({Name = "Outline",Value = ZORKA.Config.NPCESP.Box.Outline,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Box.Outline = Bool
 			end})
-			BoxSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZØRKA.Config.NPCESP.Box.Thickness,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Box.Thickness = Number
+			BoxSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZORKA.Config.NPCESP.Box.Thickness,Callback = function(Number)
+				ZORKA.Config.NPCESP.Box.Thickness = Number
 			end})
-			BoxSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.NPCESP.Box.Transparency,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Box.Transparency = Number
+			BoxSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.NPCESP.Box.Transparency,Callback = function(Number)
+				ZORKA.Config.NPCESP.Box.Transparency = Number
 			end})
 			BoxSection:Divider({Text = "Text / Info"})
-			BoxSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.NPCESP.Box.Info.Enabled,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Box.Info.Enabled = Bool
+			BoxSection:Toggle({Name = "Enabled",Value = ZORKA.Config.NPCESP.Box.Info.Enabled,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Box.Info.Enabled = Bool
 			end})
-			BoxSection:Toggle({Name = "Autoscale",Value = ZØRKA.Config.NPCESP.Box.Info.AutoScale,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Box.Info.AutoScale = Bool
+			BoxSection:Toggle({Name = "Autoscale",Value = ZORKA.Config.NPCESP.Box.Info.AutoScale,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Box.Info.AutoScale = Bool
 			end})
-			BoxSection:Slider({Name = "Size",Min = 14,Max = 28,Value = ZØRKA.Config.NPCESP.Box.Info.Size,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Box.Info.Size = Number
+			BoxSection:Slider({Name = "Size",Min = 14,Max = 28,Value = ZORKA.Config.NPCESP.Box.Info.Size,Callback = function(Number)
+				ZORKA.Config.NPCESP.Box.Info.Size = Number
 			end})
-			BoxSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.NPCESP.Box.Info.Transparency,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Box.Info.Transparency = Number
+			BoxSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.NPCESP.Box.Info.Transparency,Callback = function(Number)
+				ZORKA.Config.NPCESP.Box.Info.Transparency = Number
 			end})
 		end
 		local OoVSection = NPCVisualsTab:Section({Name = "Offscreen Arrows",Side = "Left"}) do
-			OoVSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.NPCESP.Other.Arrow.Enabled,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Other.Arrow.Enabled = Bool
+			OoVSection:Toggle({Name = "Enabled",Value = ZORKA.Config.NPCESP.Other.Arrow.Enabled,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Other.Arrow.Enabled = Bool
 			end})
-			OoVSection:Toggle({Name = "Filled",Value = ZØRKA.Config.NPCESP.Other.Arrow.Filled,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Other.Arrow.Filled = Bool
+			OoVSection:Toggle({Name = "Filled",Value = ZORKA.Config.NPCESP.Other.Arrow.Filled,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Other.Arrow.Filled = Bool
 			end})
-			OoVSection:Slider({Name = "Height",Min = 14,Max = 28,Value = ZØRKA.Config.NPCESP.Other.Arrow.Height,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Other.Arrow.Height = Number
+			OoVSection:Slider({Name = "Height",Min = 14,Max = 28,Value = ZORKA.Config.NPCESP.Other.Arrow.Height,Callback = function(Number)
+				ZORKA.Config.NPCESP.Other.Arrow.Height = Number
 			end})
-			OoVSection:Slider({Name = "Width",Min = 14,Max = 28,Value = ZØRKA.Config.NPCESP.Other.Arrow.Width,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Other.Arrow.Width = Number
+			OoVSection:Slider({Name = "Width",Min = 14,Max = 28,Value = ZORKA.Config.NPCESP.Other.Arrow.Width,Callback = function(Number)
+				ZORKA.Config.NPCESP.Other.Arrow.Width = Number
 			end})
-			OoVSection:Slider({Name = "Distance From Center",Min = 80,Max = 200,Value = ZØRKA.Config.NPCESP.Other.Arrow.DistanceFromCenter,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Other.Arrow.DistanceFromCenter = Number
+			OoVSection:Slider({Name = "Distance From Center",Min = 80,Max = 200,Value = ZORKA.Config.NPCESP.Other.Arrow.DistanceFromCenter,Callback = function(Number)
+				ZORKA.Config.NPCESP.Other.Arrow.DistanceFromCenter = Number
 			end})
-			OoVSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZØRKA.Config.NPCESP.Other.Arrow.Thickness,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Other.Arrow.Thickness = Number
+			OoVSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZORKA.Config.NPCESP.Other.Arrow.Thickness,Callback = function(Number)
+				ZORKA.Config.NPCESP.Other.Arrow.Thickness = Number
 			end})
-			OoVSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.NPCESP.Other.Arrow.Transparency,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Other.Arrow.Transparency = Number
+			OoVSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.NPCESP.Other.Arrow.Transparency,Callback = function(Number)
+				ZORKA.Config.NPCESP.Other.Arrow.Transparency = Number
 			end})
 		end
 		local HeadSection = NPCVisualsTab:Section({Name = "Head Circles",Side = "Right"}) do
-			HeadSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.NPCESP.Other.Head.Enabled,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Other.Head.Enabled = Bool
+			HeadSection:Toggle({Name = "Enabled",Value = ZORKA.Config.NPCESP.Other.Head.Enabled,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Other.Head.Enabled = Bool
 			end})
-			HeadSection:Toggle({Name = "Filled",Value = ZØRKA.Config.NPCESP.Other.Head.Filled,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Other.Head.Filled = Bool
+			HeadSection:Toggle({Name = "Filled",Value = ZORKA.Config.NPCESP.Other.Head.Filled,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Other.Head.Filled = Bool
 			end})
-			HeadSection:Toggle({Name = "Autoscale",Value = ZØRKA.Config.NPCESP.Other.Head.AutoScale,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Other.Head.AutoScale = Bool
+			HeadSection:Toggle({Name = "Autoscale",Value = ZORKA.Config.NPCESP.Other.Head.AutoScale,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Other.Head.AutoScale = Bool
 			end})
-			HeadSection:Slider({Name = "Radius",Min = 1,Max = 10,Value = ZØRKA.Config.NPCESP.Other.Head.Radius,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Other.Head.Radius = Number
+			HeadSection:Slider({Name = "Radius",Min = 1,Max = 10,Value = ZORKA.Config.NPCESP.Other.Head.Radius,Callback = function(Number)
+				ZORKA.Config.NPCESP.Other.Head.Radius = Number
 			end})
-			HeadSection:Slider({Name = "NumSides",Min = 3,Max = 100,Value = ZØRKA.Config.NPCESP.Other.Head.NumSides,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Other.Head.NumSides = Number
+			HeadSection:Slider({Name = "NumSides",Min = 3,Max = 100,Value = ZORKA.Config.NPCESP.Other.Head.NumSides,Callback = function(Number)
+				ZORKA.Config.NPCESP.Other.Head.NumSides = Number
 			end})
-			HeadSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZØRKA.Config.NPCESP.Other.Head.Thickness,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Other.Head.Thickness = Number
+			HeadSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZORKA.Config.NPCESP.Other.Head.Thickness,Callback = function(Number)
+				ZORKA.Config.NPCESP.Other.Head.Thickness = Number
 			end})
-			HeadSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.NPCESP.Other.Head.Transparency,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Other.Head.Transparency = Number
+			HeadSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.NPCESP.Other.Head.Transparency,Callback = function(Number)
+				ZORKA.Config.NPCESP.Other.Head.Transparency = Number
 			end})
 		end
 		local TracerSection = NPCVisualsTab:Section({Name = "Tracers",Side = "Right"}) do
-			TracerSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.NPCESP.Other.Tracer.Enabled,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Other.Tracer.Enabled = Bool
+			TracerSection:Toggle({Name = "Enabled",Value = ZORKA.Config.NPCESP.Other.Tracer.Enabled,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Other.Tracer.Enabled = Bool
 			end})
 			TracerSection:Dropdown({Name = "Mode",Default = {
-				ZØRKA.Config.NPCESP.Other.Tracer.From == "ScreenBottom" and "From Bottom" or "From Mouse"
+				ZORKA.Config.NPCESP.Other.Tracer.From == "ScreenBottom" and "From Bottom" or "From Mouse"
 			},List = {
 				{Name = "From Bottom",Mode = "Button",Callback = function()
-					ZØRKA.Config.NPCESP.Other.Tracer.From = "ScreenBottom"
+					ZORKA.Config.NPCESP.Other.Tracer.From = "ScreenBottom"
 				end},
 				{Name = "From Mouse",Mode = "Button",Callback = function()
-					ZØRKA.Config.NPCESP.Other.Tracer.From = "Mouse"
+					ZORKA.Config.NPCESP.Other.Tracer.From = "Mouse"
 				end}
 			}})
-			TracerSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZØRKA.Config.NPCESP.Other.Tracer.Thickness,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Other.Tracer.Thickness = Number
+			TracerSection:Slider({Name = "Thickness",Min = 1,Max = 10,Value = ZORKA.Config.NPCESP.Other.Tracer.Thickness,Callback = function(Number)
+				ZORKA.Config.NPCESP.Other.Tracer.Thickness = Number
 			end})
-			TracerSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.NPCESP.Other.Tracer.Transparency,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Other.Tracer.Transparency = Number
+			TracerSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.NPCESP.Other.Tracer.Transparency,Callback = function(Number)
+				ZORKA.Config.NPCESP.Other.Tracer.Transparency = Number
 			end})
 		end
 		local HighlightSection = NPCVisualsTab:Section({Name = "Highlights",Side = "Right"}) do
-			HighlightSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.NPCESP.Highlight.Enabled,Callback = function(Bool)
-				ZØRKA.Config.NPCESP.Highlight.Enabled = Bool
+			HighlightSection:Toggle({Name = "Enabled",Value = ZORKA.Config.NPCESP.Highlight.Enabled,Callback = function(Bool)
+				ZORKA.Config.NPCESP.Highlight.Enabled = Bool
 			end})
-			HighlightSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.NPCESP.Highlight.Transparency,Callback = function(Number)
-				ZØRKA.Config.NPCESP.Highlight.Transparency = Number
+			HighlightSection:Slider({Name = "Transparency",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.NPCESP.Highlight.Transparency,Callback = function(Number)
+				ZORKA.Config.NPCESP.Highlight.Transparency = Number
 			end})
-			HighlightSection:Colorpicker({Name = "Outline Color",HSVAR = ZØRKA.Config.NPCESP.Highlight.OutlineColor,Callback = function(HSVAR)
-				ZØRKA.Config.NPCESP.Highlight.OutlineColor = HSVAR
+			HighlightSection:Colorpicker({Name = "Outline Color",HSVAR = ZORKA.Config.NPCESP.Highlight.OutlineColor,Callback = function(HSVAR)
+				ZORKA.Config.NPCESP.Highlight.OutlineColor = HSVAR
 			end})
 		end
 	end
-	local GameTab = Window:Tab({Name = ZØRKA.Current}) do
+	local GameTab = Window:Tab({Name = ZORKA.Current}) do
 		local EnvSection = GameTab:Section({Name = "Environment"}) do
-			EnvSection:Toggle({Name = "Enable",Value = ZØRKA.Config.GameFeatures.EnvEnable,Callback = function(Bool)
-				ZØRKA.Config.GameFeatures.EnvEnable = Bool
+			EnvSection:Toggle({Name = "Enable",Value = ZORKA.Config.GameFeatures.EnvEnable,Callback = function(Bool)
+				ZORKA.Config.GameFeatures.EnvEnable = Bool
 			end})
-			EnvSection:Slider({Name = "Clock Time",Min = 0,Max = 24,Value = ZØRKA.Config.GameFeatures.EnvTime,Callback = function(Number)
-				ZØRKA.Config.GameFeatures.EnvTime = Number
+			EnvSection:Slider({Name = "Clock Time",Min = 0,Max = 24,Value = ZORKA.Config.GameFeatures.EnvTime,Callback = function(Number)
+				ZORKA.Config.GameFeatures.EnvTime = Number
 			end})
-			EnvSection:Slider({Name = "Fog Density",Min = 0,Max = 1,Precise = 2,Value = ZØRKA.Config.GameFeatures.EnvFog,Callback = function(Number)
-				ZØRKA.Config.GameFeatures.EnvFog = Number
+			EnvSection:Slider({Name = "Fog Density",Min = 0,Max = 1,Precise = 2,Value = ZORKA.Config.GameFeatures.EnvFog,Callback = function(Number)
+				ZORKA.Config.GameFeatures.EnvFog = Number
 			end})
 		end
 		local WeaponSection = GameTab:Section({Name = "Weapon"}) do
-			WeaponSection:Toggle({Name = "No Recoil",Value = ZØRKA.Config.GameFeatures.NoRecoil,Callback = function(Bool)
-				ZØRKA.Config.GameFeatures.NoRecoil = Bool
+			WeaponSection:Toggle({Name = "No Recoil",Value = ZORKA.Config.GameFeatures.NoRecoil,Callback = function(Bool)
+				ZORKA.Config.GameFeatures.NoRecoil = Bool
 			end})
-			WeaponSection:Toggle({Name = "Instant Hit",Value = ZØRKA.Config.GameFeatures.InstantHit,Callback = function(Bool)
-				ZØRKA.Config.GameFeatures.InstantHit = Bool
+			WeaponSection:Toggle({Name = "Instant Hit",Value = ZORKA.Config.GameFeatures.InstantHit,Callback = function(Bool)
+				ZORKA.Config.GameFeatures.InstantHit = Bool
 			end}):ToolTip("silent aim works better with it")
-			WeaponSection:Toggle({Name = "Unlock Firemodes",Value = ZØRKA.Config.GameFeatures.UnlockFiremodes,Callback = function(Bool)
-				ZØRKA.Config.GameFeatures.UnlockFiremodes = Bool
+			WeaponSection:Toggle({Name = "Unlock Firemodes",Value = ZORKA.Config.GameFeatures.UnlockFiremodes,Callback = function(Bool)
+				ZORKA.Config.GameFeatures.UnlockFiremodes = Bool
 			end}):ToolTip("re-equip your weapon to make it work")
-			local RapidFireToggle = WeaponSection:Toggle({Name = "Rapid Fire",Value = ZØRKA.Config.GameFeatures.RapidFire,Callback = function(Bool)
-				ZØRKA.Config.GameFeatures.RapidFire = Bool
+			local RapidFireToggle = WeaponSection:Toggle({Name = "Rapid Fire",Value = ZORKA.Config.GameFeatures.RapidFire,Callback = function(Bool)
+				ZORKA.Config.GameFeatures.RapidFire = Bool
 			end})
-			RapidFireToggle:Keybind({Key = ZØRKA.Config.Binds.RapidFire,Callback = function(Bool,Key)
-				ZØRKA.Config.Binds.RapidFire = Key or "NONE"
+			RapidFireToggle:Keybind({Key = ZORKA.Config.Binds.RapidFire,Callback = function(Bool,Key)
+				ZORKA.Config.Binds.RapidFire = Key or "NONE"
 			end})
 			RapidFireToggle:ToolTip("re-equip your weapon to disable")
-			WeaponSection:Slider({Name = "Round Per Minute",Min = 45,Max = 1000,Value = ZØRKA.Config.GameFeatures.RapidFireValue,Callback = function(Number)
-				ZØRKA.Config.GameFeatures.RapidFireValue = Number
+			WeaponSection:Slider({Name = "Round Per Minute",Min = 45,Max = 1000,Value = ZORKA.Config.GameFeatures.RapidFireValue,Callback = function(Number)
+				ZORKA.Config.GameFeatures.RapidFireValue = Number
 			end})
 		end
 		local CharSection = GameTab:Section({Name = "Character"}) do
-			CharSection:Toggle({Name = "Speedhack",Value = ZØRKA.Config.GameFeatures.Speedhack,Callback = function(Bool)
-				ZØRKA.Config.GameFeatures.Speedhack = Bool
-			end}):Keybind({Key = ZØRKA.Config.Binds.Speedhack,Callback = function(Bool,Key)
-				ZØRKA.Config.Binds.Speedhack = Key or "NONE"
+			CharSection:Toggle({Name = "Speedhack",Value = ZORKA.Config.GameFeatures.Speedhack,Callback = function(Bool)
+				ZORKA.Config.GameFeatures.Speedhack = Bool
+			end}):Keybind({Key = ZORKA.Config.Binds.Speedhack,Callback = function(Bool,Key)
+				ZORKA.Config.Binds.Speedhack = Key or "NONE"
 			end})
-			CharSection:Slider({Name = "Speed",Min = 16,Max = 1000,Value = ZØRKA.Config.GameFeatures.SpeedhackValue,Callback = function(Number)
-				ZØRKA.Config.GameFeatures.SpeedhackValue = Number
+			CharSection:Slider({Name = "Speed",Min = 16,Max = 1000,Value = ZORKA.Config.GameFeatures.SpeedhackValue,Callback = function(Number)
+				ZORKA.Config.GameFeatures.SpeedhackValue = Number
 			end})
 		end
 		local VehSection = GameTab:Section({Name = "Vehicle"}) do
-			VehSection:Toggle({Name = "Enable",Value = ZØRKA.Config.GameFeatures.Vehicle,Callback = function(Bool)
-				ZØRKA.Config.GameFeatures.Vehicle = Bool
-			end}):Keybind({Key = ZØRKA.Config.Binds.Vehicle,Callback = function(Bool,Key)
-				ZØRKA.Config.Binds.Vehicle = Key or "NONE"
+			VehSection:Toggle({Name = "Enable",Value = ZORKA.Config.GameFeatures.Vehicle,Callback = function(Bool)
+				ZORKA.Config.GameFeatures.Vehicle = Bool
+			end}):Keybind({Key = ZORKA.Config.Binds.Vehicle,Callback = function(Bool,Key)
+				ZORKA.Config.Binds.Vehicle = Key or "NONE"
 			end})
-			VehSection:Slider({Name = "Speed",Min = 0,Max = 1000,Value = ZØRKA.Config.GameFeatures.VehicleSpeed,Callback = function(Number)
-				ZØRKA.Config.GameFeatures.VehicleSpeed = Number
+			VehSection:Slider({Name = "Speed",Min = 0,Max = 1000,Value = ZORKA.Config.GameFeatures.VehicleSpeed,Callback = function(Number)
+				ZORKA.Config.GameFeatures.VehicleSpeed = Number
 			end})
-			VehSection:Slider({Name = "Acceleration",Min = 1,Max = 50,Value = ZØRKA.Config.GameFeatures.VehicleAcceleration,Callback = function(Number)
-				ZØRKA.Config.GameFeatures.VehicleAcceleration = Number
+			VehSection:Slider({Name = "Acceleration",Min = 1,Max = 50,Value = ZORKA.Config.GameFeatures.VehicleAcceleration,Callback = function(Number)
+				ZORKA.Config.GameFeatures.VehicleAcceleration = Number
 			end}):ToolTip("lower = faster")
 		end
 		local HeliSection = GameTab:Section({Name = "Helicopter"}) do
-			HeliSection:Toggle({Name = "Enable",Value = ZØRKA.Config.GameFeatures.Helicopter,Callback = function(Bool)
-				ZØRKA.Config.GameFeatures.Helicopter = Bool
-			end}):Keybind({Key = ZØRKA.Config.Binds.Helicopter,Callback = function(Bool,Key)
-				ZØRKA.Config.Binds.Helicopter = Key or "NONE"
+			HeliSection:Toggle({Name = "Enable",Value = ZORKA.Config.GameFeatures.Helicopter,Callback = function(Bool)
+				ZORKA.Config.GameFeatures.Helicopter = Bool
+			end}):Keybind({Key = ZORKA.Config.Binds.Helicopter,Callback = function(Bool,Key)
+				ZORKA.Config.Binds.Helicopter = Key or "NONE"
 			end})
-			HeliSection:Slider({Name = "Speed",Min = 0,Max = 500,Value = ZØRKA.Config.GameFeatures.HelicopterSpeed,Callback = function(Number)
-				ZØRKA.Config.GameFeatures.HelicopterSpeed = Number
+			HeliSection:Slider({Name = "Speed",Min = 0,Max = 500,Value = ZORKA.Config.GameFeatures.HelicopterSpeed,Callback = function(Number)
+				ZORKA.Config.GameFeatures.HelicopterSpeed = Number
 			end})
 		end
 	end
@@ -623,38 +623,38 @@ Color = ZØRKA.Utilities.Config:TableToColor(ZØRKA.Config.UI.Color),Position = 
 		local MenuSection = SettingsTab:Section({Name = "Menu",Side = "Left"}) do
 			MenuSection:Toggle({Name = "Enabled",Value = Window.Enabled,Callback = function(Bool) 
 				Window:Toggle(Bool)
-			end}):Keybind({Key = ZØRKA.Config.UI.Keybind,Callback = function(Bool,Key)
-				ZØRKA.Config.UI.Keybind = Key or "NONE"
+			end}):Keybind({Key = ZORKA.Config.UI.Keybind,Callback = function(Bool,Key)
+				ZORKA.Config.UI.Keybind = Key or "NONE"
 			end})
-			MenuSection:Toggle({Name = "Watermark",Value = ZØRKA.Config.UI.Watermark,Callback = function(Bool) 
-				ZØRKA.Config.UI.Watermark = Bool
-				if not ZØRKA.Config.UI.Watermark then
-					ZØRKA.Utilities.UI:Watermark()
+			MenuSection:Toggle({Name = "Watermark",Value = ZORKA.Config.UI.Watermark,Callback = function(Bool) 
+				ZORKA.Config.UI.Watermark = Bool
+				if not ZORKA.Config.UI.Watermark then
+					ZORKA.Utilities.UI:Watermark()
 				end
 			end})
-			MenuSection:Toggle({Name = "Close On Exec",Value = not ZØRKA.Config.UI.Enabled,Callback = function(Bool) 
-				ZØRKA.Config.UI.Enabled = not Bool
+			MenuSection:Toggle({Name = "Close On Exec",Value = not ZORKA.Config.UI.Enabled,Callback = function(Bool) 
+				ZORKA.Config.UI.Enabled = not Bool
 			end})
-			MenuSection:Toggle({Name = "Custom Mouse",Value = ZØRKA.Config.UI.Cursor.Enabled,Callback = function(Bool) 
-				ZØRKA.Config.UI.Cursor.Enabled = Bool
+			MenuSection:Toggle({Name = "Custom Mouse",Value = ZORKA.Config.UI.Cursor.Enabled,Callback = function(Bool) 
+				ZORKA.Config.UI.Cursor.Enabled = Bool
 			end})
-			MenuSection:Colorpicker({Name = "Color",HSVAR = ZØRKA.Config.UI.Color,Callback = function(HSVAR,Color)
-				ZØRKA.Config.UI.Color = HSVAR
+			MenuSection:Colorpicker({Name = "Color",HSVAR = ZORKA.Config.UI.Color,Callback = function(HSVAR,Color)
+				ZORKA.Config.UI.Color = HSVAR
 				Window:SetColor(Color)
 			end})
 		end
 		local CrosshairSection = SettingsTab:Section({Name = "Custom Crosshair",Side = "Left"}) do
-			CrosshairSection:Toggle({Name = "Enabled",Value = ZØRKA.Config.UI.Cursor.Crosshair.Enabled,Callback = function(Bool) 
-				ZØRKA.Config.UI.Cursor.Crosshair.Enabled = Bool
+			CrosshairSection:Toggle({Name = "Enabled",Value = ZORKA.Config.UI.Cursor.Crosshair.Enabled,Callback = function(Bool) 
+				ZORKA.Config.UI.Cursor.Crosshair.Enabled = Bool
 			end})
-			CrosshairSection:Colorpicker({Name = "Color",HSVAR = ZØRKA.Config.UI.Cursor.Crosshair.Color,Callback = function(HSVAR)
-				ZØRKA.Config.UI.Cursor.Crosshair.Color = HSVAR
+			CrosshairSection:Colorpicker({Name = "Color",HSVAR = ZORKA.Config.UI.Cursor.Crosshair.Color,Callback = function(HSVAR)
+				ZORKA.Config.UI.Cursor.Crosshair.Color = HSVAR
 			end})
-			CrosshairSection:Slider({Name = "Size",Min = 0,Max = 100,Value = ZØRKA.Config.UI.Cursor.Crosshair.Size,Callback = function(Number)
-				ZØRKA.Config.UI.Cursor.Crosshair.Size = Number
+			CrosshairSection:Slider({Name = "Size",Min = 0,Max = 100,Value = ZORKA.Config.UI.Cursor.Crosshair.Size,Callback = function(Number)
+				ZORKA.Config.UI.Cursor.Crosshair.Size = Number
 			end})
-			CrosshairSection:Slider({Name = "Gap",Min = 0,Max = 100,Value = ZØRKA.Config.UI.Cursor.Crosshair.Gap,Callback = function(Number)
-				ZØRKA.Config.UI.Cursor.Crosshair.Gap = Number
+			CrosshairSection:Slider({Name = "Gap",Min = 0,Max = 100,Value = ZORKA.Config.UI.Cursor.Crosshair.Gap,Callback = function(Number)
+				ZORKA.Config.UI.Cursor.Crosshair.Gap = Number
 			end})
 		end
 		SettingsTab:Button({Name = "Rejoin",Side = "Left",Callback = function()
@@ -678,8 +678,8 @@ Color = ZØRKA.Utilities.Config:TableToColor(ZØRKA.Config.UI.Color),Position = 
 			if #Servers > 0 then
 				game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, Servers[math.random(1, #Servers)])
 			else
-				ZØRKA.Utilities.UI:Notification({
-					Title = "ZØRKA Hub",
+				ZORKA.Utilities.UI:Notification({
+					Title = "ZORKA Hub",
 					Description = "Couldn't find a server",
 					Duration = 5
 				})
@@ -704,51 +704,51 @@ Color = ZØRKA.Utilities.Config:TableToColor(ZØRKA.Config.UI.Color),Position = 
 			})
 		end}):ToolTip("Join for support, updates and more!")
 		local BackgroundSection = SettingsTab:Section({Name = "Background",Side = "Right"}) do
-			BackgroundSection:Dropdown({Name = "Image",Default = {ZØRKA.Config.UI.Background},List = {
+			BackgroundSection:Dropdown({Name = "Image",Default = {ZORKA.Config.UI.Background},List = {
 				{Name = "Legacy",Mode = "Button",Callback = function()
 					Window.Background.Image = "rbxassetid://2151741365"
-					ZØRKA.Config.UI.BackgroundId = "rbxassetid://2151741365"
+					ZORKA.Config.UI.BackgroundId = "rbxassetid://2151741365"
 				end},
 				{Name = "Hearts",Mode = "Button",Callback = function()
 					Window.Background.Image = "rbxassetid://6073763717"
-					ZØRKA.Config.UI.BackgroundId = "rbxassetid://6073763717"
+					ZORKA.Config.UI.BackgroundId = "rbxassetid://6073763717"
 				end},
 				{Name = "Abstract",Mode = "Button",Callback = function()
 					Window.Background.Image = "rbxassetid://6073743871"
-					ZØRKA.Config.UI.BackgroundId = "rbxassetid://6073743871"
+					ZORKA.Config.UI.BackgroundId = "rbxassetid://6073743871"
 				end},
 				{Name = "Hexagon",Mode = "Button",Callback = function()
 					Window.Background.Image = "rbxassetid://6073628839"
-					ZØRKA.Config.UI.BackgroundId = "rbxassetid://6073628839"
+					ZORKA.Config.UI.BackgroundId = "rbxassetid://6073628839"
 				end},
 				{Name = "Circles",Mode = "Button",Callback = function()
 					Window.Background.Image = "rbxassetid://6071579801"
-					ZØRKA.Config.UI.BackgroundId = "rbxassetid://6071579801"
+					ZORKA.Config.UI.BackgroundId = "rbxassetid://6071579801"
 				end},
 				{Name = "Lace With Flowers",Mode = "Button",Callback = function()
 					Window.Background.Image = "rbxassetid://6071575925"
-					ZØRKA.Config.UI.BackgroundId = "rbxassetid://6071575925"
+					ZORKA.Config.UI.BackgroundId = "rbxassetid://6071575925"
 				end},
 				{Name = "Floral",Mode = "Button",Callback = function()
 					Window.Background.Image = "rbxassetid://5553946656"
-					ZØRKA.Config.UI.BackgroundId = "rbxassetid://5553946656"
+					ZORKA.Config.UI.BackgroundId = "rbxassetid://5553946656"
 				end}
 			}})
-			Window.Background.Image = ZØRKA.Config.UI.BackgroundId
-			Window.Background.ImageTransparency = ZØRKA.Config.UI.BackgroundColor[4]
-			Window.Background.TileSize = UDim2.new(0,ZØRKA.Config.UI.TileSize,0,ZØRKA.Config.UI.TileSize)
-			Window.Background.ImageColor3 = ZØRKA.Utilities.Config:TableToColor(ZØRKA.Config.UI.BackgroundColor)
+			Window.Background.Image = ZORKA.Config.UI.BackgroundId
+			Window.Background.ImageTransparency = ZORKA.Config.UI.BackgroundColor[4]
+			Window.Background.TileSize = UDim2.new(0,ZORKA.Config.UI.TileSize,0,ZORKA.Config.UI.TileSize)
+			Window.Background.ImageColor3 = ZORKA.Utilities.Config:TableToColor(ZORKA.Config.UI.BackgroundColor)
 			BackgroundSection:Textbox({Name = "Custom Image",Text = "",Placeholder = "ImageId",Callback = function(String)
 				Window.Background.Image = "rbxassetid://" .. String
-				ZØRKA.Config.UI.BackgroundId = "rbxassetid://" .. String
+				ZORKA.Config.UI.BackgroundId = "rbxassetid://" .. String
 			end})
-			BackgroundSection:Colorpicker({Name = "Color",HSVAR = ZØRKA.Config.UI.BackgroundColor,Callback = function(HSVAR,Color)
-				ZØRKA.Config.UI.BackgroundColor = HSVAR
+			BackgroundSection:Colorpicker({Name = "Color",HSVAR = ZORKA.Config.UI.BackgroundColor,Callback = function(HSVAR,Color)
+				ZORKA.Config.UI.BackgroundColor = HSVAR
 				Window.Background.ImageColor3 = Color
 				Window.Background.ImageTransparency = HSVAR[4]
 			end})
 			BackgroundSection:Slider({Name = "Tile Offset",Min = 74, Max = 296,Value = Window.Background.TileSize.X.Offset,Callback = function(Number)
-				ZØRKA.Config.UI.TileSize = Number
+				ZORKA.Config.UI.TileSize = Number
 				Window.Background.TileSize = UDim2.new(0,Number,0,Number)
 			end})
 		end
@@ -796,7 +796,7 @@ local function GetTarget(Config)
 	local FieldOfView = Config.FieldOfView
 	local ClosestTarget = nil
 
-	if ZØRKA.Config.AimAssist.TargetMode == "NPC" then
+	if ZORKA.Config.AimAssist.TargetMode == "NPC" then
 		for Index, Target in pairs(NPCFolder:GetChildren()) do
 			local ActualEnemy = Target:FindFirstChild("Vest")
 			if ActualEnemy and (Target:FindFirstChildOfClass("Humanoid") and Target:FindFirstChildOfClass("Humanoid").Health > 0) then
@@ -813,7 +813,7 @@ local function GetTarget(Config)
 				end
 			end
 		end
-	elseif ZØRKA.Config.AimAssist.TargetMode == "Player" then
+	elseif ZORKA.Config.AimAssist.TargetMode == "Player" then
 		for Index, Target in pairs(PlayerService:GetPlayers()) do
 			local Character = Target.Character
 			local Health = Character and (Character:FindFirstChildOfClass("Humanoid") and Character:FindFirstChildOfClass("Humanoid").Health > 0)
@@ -870,8 +870,8 @@ end
 if ControllerClass and controllerOld then
 	ControllerClass.LateUpdate = function(...)
 		local args = {...}
-		if ZØRKA.Config.GameFeatures.Speedhack then
-			args[1].Speed = ZØRKA.Config.GameFeatures.SpeedhackValue
+		if ZORKA.Config.GameFeatures.Speedhack then
+			args[1].Speed = ZORKA.Config.GameFeatures.SpeedhackValue
 		end
 		return controllerOld(...)
 	end
@@ -892,7 +892,7 @@ if CharacterCamera and cameraOld then
 		local args = {...}
 		args[1]._shakes = {}
 		args[1]._bob = 0
-		if ZØRKA.Config.GameFeatures.NoRecoil then
+		if ZORKA.Config.GameFeatures.NoRecoil then
 			args[1]._recoil.Velocity = Vector3.zero
 		end
 		return cameraOld(...)
@@ -912,7 +912,7 @@ end
 if TurretCamera and turretCamOld then
 	TurretCamera.Update = function(...)
 		local args = {...}
-		if ZØRKA.Config.GameFeatures.NoRecoil then
+		if ZORKA.Config.GameFeatures.NoRecoil then
 			args[1]._recoil.Velocity = Vector3.zero
 		end
 		return turretCamOld(...)
@@ -934,17 +934,17 @@ end
 if FirearmInventory and firearmDischargeOld and firearmNewOld then
 	FirearmInventory._discharge = function(...)
 		local args = {...}
-		if ZØRKA.Config.GameFeatures.RapidFire then
-			args[1]._config.Tune.RPM = ZØRKA.Config.GameFeatures.RapidFireValue
+		if ZORKA.Config.GameFeatures.RapidFire then
+			args[1]._config.Tune.RPM = ZORKA.Config.GameFeatures.RapidFireValue
 		end
-		if ZØRKA.Config.GameFeatures.InstantHit then
+		if ZORKA.Config.GameFeatures.InstantHit then
 			args[1]._config.Tune.Velocity = 9e9
 		end
 		return firearmDischargeOld(...)
 	end
 	FirearmInventory.new = function(...)
 		local args = {...}
-		if ZØRKA.Config.GameFeatures.UnlockFiremodes then
+		if ZORKA.Config.GameFeatures.UnlockFiremodes then
 			if not table.find(args[2].Tune.Firemodes,1) then
 				table.insert(args[2].Tune.Firemodes,1)
 			end
@@ -973,9 +973,9 @@ end
 if GroundMovement and groundOld then
 	GroundMovement.Update = function(...)
 		local args = {...}
-		if ZØRKA.Config.GameFeatures.Vehicle then
-			args[1]._tune.Speed = ZØRKA.Config.GameFeatures.VehicleSpeed
-			args[1]._tune.Accelerate = ZØRKA.Config.GameFeatures.VehicleAcceleration
+		if ZORKA.Config.GameFeatures.Vehicle then
+			args[1]._tune.Speed = ZORKA.Config.GameFeatures.VehicleSpeed
+			args[1]._tune.Accelerate = ZORKA.Config.GameFeatures.VehicleAcceleration
 		end
 		return groundOld(...)
 	end
@@ -994,8 +994,8 @@ end
 if HelicopterMovement and heliOld then
 	HelicopterMovement.Update = function(...)
 		local args = {...}
-		if ZØRKA.Config.GameFeatures.Helicopter then
-			args[1]._tune.Speed = ZØRKA.Config.GameFeatures.HelicopterSpeed
+		if ZORKA.Config.GameFeatures.Helicopter then
+			args[1]._tune.Speed = ZORKA.Config.GameFeatures.HelicopterSpeed
 		end
 		return heliOld(...)
 	end
@@ -1014,7 +1014,7 @@ end
 if AircraftMovement and aircraftDischargeOld then
 	AircraftMovement._discharge = function(...)
 		local args = {...}
-		if ZØRKA.Config.GameFeatures.InstantHit then
+		if ZORKA.Config.GameFeatures.InstantHit then
 			args[1]._tune.Velocity = 9e9
 		end
 		AircraftTip = args[1]._tip
@@ -1035,7 +1035,7 @@ end
 if TurretMovement and turretOld then
 	TurretMovement._discharge = function(...)
 		local args = {...}
-		if ZØRKA.Config.GameFeatures.InstantHit then
+		if ZORKA.Config.GameFeatures.InstantHit then
 			args[1]._tune.Velocity = 9e9
 		end
 		GroundTip = args[1]._tip
@@ -1056,11 +1056,11 @@ end
 if EnvironmentService and environmentOld then
 	EnvironmentService.Update = function(...)
 		local args = {...}
-		if ZØRKA.Config.GameFeatures.EnvEnable then
-			args[1]._atmoshperes.Default.Density = ZØRKA.Config.GameFeatures.EnvFog
+		if ZORKA.Config.GameFeatures.EnvEnable then
+			args[1]._atmoshperes.Default.Density = ZORKA.Config.GameFeatures.EnvFog
 			if args[1]._atmoshperes.Desert and args[1]._atmoshperes.Snow then
-				args[1]._atmoshperes.Desert.Density = ZØRKA.Config.GameFeatures.EnvFog
-				args[1]._atmoshperes.Snow.Density = ZØRKA.Config.GameFeatures.EnvFog
+				args[1]._atmoshperes.Desert.Density = ZORKA.Config.GameFeatures.EnvFog
+				args[1]._atmoshperes.Snow.Density = ZORKA.Config.GameFeatures.EnvFog
 			end
 		end
 		return environmentOld(...)
@@ -1070,10 +1070,10 @@ end
 local __namecall
 __namecall = hookmetamethod(game, "__namecall", function(self, ...)
 	local args = {...}
-	if ZØRKA.Config.AimAssist.SilentAim.Enabled and SilentAim then
+	if ZORKA.Config.AimAssist.SilentAim.Enabled and SilentAim then
 		if getnamecallmethod() == "Raycast" then
 			local Camera = Workspace.CurrentCamera
-			local HitChance = math.random(0,100) <= ZØRKA.Config.AimAssist.SilentAim.HitChance
+			local HitChance = math.random(0,100) <= ZORKA.Config.AimAssist.SilentAim.HitChance
 			if HitChance and args[1] == Camera.CFrame.Position then
 				args[2] = SilentAim.Position - Camera.CFrame.Position
 			elseif AircraftTip and HitChance and args[1] == AircraftTip.WorldCFrame.Position then
@@ -1087,49 +1087,49 @@ __namecall = hookmetamethod(game, "__namecall", function(self, ...)
 end)
 
 RunService.Heartbeat:Connect(function()
-	SilentAim = GetTarget(ZØRKA.Config.AimAssist.SilentAim)
-	if Aimbot then AimAt(GetTarget(ZØRKA.Config.AimAssist.Aimbot),
-		ZØRKA.Config.AimAssist.Aimbot)
+	SilentAim = GetTarget(ZORKA.Config.AimAssist.SilentAim)
+	if Aimbot then AimAt(GetTarget(ZORKA.Config.AimAssist.Aimbot),
+		ZORKA.Config.AimAssist.Aimbot)
 	end
 
-	if ZØRKA.Config.UI.Watermark then
-		ZØRKA.Utilities.UI:Watermark({
+	if ZORKA.Config.UI.Watermark then
+		ZORKA.Utilities.UI:Watermark({
 			Enabled = true,
 			Title = string.format(
-				"ZØRKA Hub — %s\nTime: %s - %s\nFPS: %i/s\nPing: %i ms",
-				ZØRKA.Current,os.date("%X"),os.date("%x"),GetFPS(),math.round(Stats.PerformanceStats.Ping:GetValue())
+				"ZORKA Hub — %s\nTime: %s - %s\nFPS: %i/s\nPing: %i ms",
+				ZORKA.Current,os.date("%X"),os.date("%x"),GetFPS(),math.round(Stats.PerformanceStats.Ping:GetValue())
 			)
 		})
 	end
 
-	if ZØRKA.Config.GameFeatures.EnvEnable then
-		Lighting.ClockTime = ZØRKA.Config.GameFeatures.EnvTime
+	if ZORKA.Config.GameFeatures.EnvEnable then
+		Lighting.ClockTime = ZORKA.Config.GameFeatures.EnvTime
 	end
 end)
 
 for Index, NPC in pairs(NPCFolder:GetChildren()) do
 	if NPC:WaitForChild("Vest",0.5) then
-		ZØRKA.Utilities.Drawing:AddESP("NPC", NPC, ZØRKA.Config.NPCESP)
+		ZORKA.Utilities.Drawing:AddESP("NPC", NPC, ZORKA.Config.NPCESP)
 	end
 end
 NPCFolder.ChildAdded:Connect(function(NPC)
 	if NPC:WaitForChild("Vest",0.5) then
-		ZØRKA.Utilities.Drawing:AddESP("NPC", NPC, ZØRKA.Config.NPCESP)
+		ZORKA.Utilities.Drawing:AddESP("NPC", NPC, ZORKA.Config.NPCESP)
 	end
 end)
 NPCFolder.ChildRemoved:Connect(function(NPC)
-	ZØRKA.Utilities.Drawing:RemoveESP(NPC)
+	ZORKA.Utilities.Drawing:RemoveESP(NPC)
 end)
 
 for Index, Player in pairs(PlayerService:GetPlayers()) do
 	if Player ~= LocalPlayer then
-		ZØRKA.Utilities.Drawing:AddESP("Player", Player, ZØRKA.Config.PlayerESP)
+		ZORKA.Utilities.Drawing:AddESP("Player", Player, ZORKA.Config.PlayerESP)
 	end
 end
 PlayerService.PlayerAdded:Connect(function(Player)
-	ZØRKA.Utilities.Drawing:AddESP("Player", Player, ZØRKA.Config.PlayerESP)
+	ZORKA.Utilities.Drawing:AddESP("Player", Player, ZORKA.Config.PlayerESP)
 end)
 PlayerService.PlayerRemoving:Connect(function(Player)
-	if Player == LocalPlayer then ZØRKA.Utilities.Config:WriteJSON(ZØRKA.Current,ZØRKA.Config) end
-	ZØRKA.Utilities.Drawing:RemoveESP(Player)
+	if Player == LocalPlayer then ZORKA.Utilities.Config:WriteJSON(ZORKA.Current,ZORKA.Config) end
+	ZORKA.Utilities.Drawing:RemoveESP(Player)
 end)
