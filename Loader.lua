@@ -58,7 +58,7 @@ ZORKA.Games = {
 	},
 	["1168263273"] = {
 		Name = "Bad Business",
-		Script = ZORKA.Debug and readfile("ZorkaHUB/Bad Business/ClientBB.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/AlexR32/Parvus/main/Games/BB.lua")
+		Script = ZORKA.Debug and readfile("ZorkaHUB/Bad Business/ClientBB.lua") or game:HttpGetAsync("https://github.com/ZuhuInc/ZorkaHUB/blob/main/Bad%20Business/ClientBB.lua")
 	}
 }
 
