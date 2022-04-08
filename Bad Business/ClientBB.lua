@@ -689,13 +689,13 @@ Color = ZORKA.Utilities.Config:TableToColor(ZORKA.Config.UI.Color),Position = UD
             end})
         end
         local CreditsSection = SettingsTab:Section({Name = "Credits",Side = "Right"}) do
-            CreditsSection:Label({Text = "This script was made by AlexR32#0157"})
+            CreditsSection:Label({Text = "This script was made by ZuhuInc."})
             CreditsSection:Divider()
-            CreditsSection:Label({Text = "Thanks to Jan for this awesome background patterns."})
-            CreditsSection:Label({Text = "Thanks to Infinite Yield Team for server hop."})
-            CreditsSection:Label({Text = "Thanks to Blissful for Offscreen Arrows."})
-            CreditsSection:Label({Text = "Thanks to coasts for his Universal ESP."})
-            CreditsSection:Label({Text = "Thanks to el3tric for Bracket V2."})
+            CreditsSection:Label({Text = "Special Thanks To Zorka"})
+            CreditsSection:Label({Text = "Special Thanks To LTW."})
+            CreditsSection:Label({Text = "Special Thanks To IceQbe."})
+            CreditsSection:Divider()
+            CreditsSection:Label({Text = "ZØRKA ~ ゾルカ"})
             CreditsSection:Label({Text = "❤️ ❤️ ❤️ ❤️"})
         end
     end
