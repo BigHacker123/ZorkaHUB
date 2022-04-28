@@ -488,7 +488,7 @@ Color = ZORKA.Utilities.Config:TableToColor(ZORKA.Config.UI.Color),Position = UD
         local CreditsSection = SettingsTab:Section({Name = "Credits",Side = "Right"}) do
             CreditsSection:Label({Text = "This script was made by ZuhuInc."})
             CreditsSection:Divider()
-            CreditsSection:Label({Text = "Special Thanks To Zorka"})
+            CreditsSection:Label({Text = "Special Thanks To Zorax"})
             CreditsSection:Label({Text = "Special Thanks To LTW."})
             CreditsSection:Label({Text = "Special Thanks To IceQbe."})
             CreditsSection:Divider()
