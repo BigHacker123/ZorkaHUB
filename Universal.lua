@@ -175,7 +175,7 @@ Color = ZORKA.Utilities.Config:TableToColor(ZORKA.Config.UI.Color),Position = UD
                 ZORKA.Config.AimAssist.Aimbot.Circle.Thickness = Number
             end})
         end
-        local SilentAimSection = AimAssistTab:Section({Name = "Silent Aim",Side = "Right"}) do
+        local SilentAimSection = AimAssistTab:Section({Name = "Silent Aim(broken)",Side = "Right"}) do
             SilentAimSection:Toggle({Name = "Enabled",Value = ZORKA.Config.AimAssist.SilentAim.Enabled,Callback = function(Bool)
                 ZORKA.Config.AimAssist.SilentAim.Enabled = Bool
             end}):Keybind({Key = ZORKA.Config.Binds.SilentAim,Mouse = true,Callback = function(Bool,Key)
