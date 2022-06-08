@@ -7,6 +7,7 @@ local CoreGui = game:GetService("CoreGui")
 
 local Debug = false
 local MainAssetFolder = Debug and game.ReplicatedStorage["BracketV3.2"]
+	or InsertService:LoadLocalAsset("rbxassetid://9153139105")
 
 local function GetAsset(AssetFolder,Asset)
 	return MainAssetFolder[AssetFolder][Asset]:Clone()
