@@ -38,7 +38,7 @@ ZORKA.Games = {
 	},
 	["111958650"] = {
 		Name = "Arsenal",
-		Script = ZORKA.Debug and readfile("ZorkaHUB/Arsenal/ClientASL.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Arsenal/ClientASL.lua")
+		Script = ZORKA.Debug and readfile("ZorkaHUB/Arsenal/ArsenalAlpha.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Arsenal/ArsenalAlpha")
 	},
 	["1359573625"] = {
 		Name = "Deep Woken",
