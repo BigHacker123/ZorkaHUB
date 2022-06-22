@@ -37,7 +37,7 @@ ZORKA.Games = {
 		Script = ZORKA.Debug and readfile("ZorkaHUB/CounterBlox/ClientCB.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/CounterBlox/ClientCB.lua")
 	},
 	["111958650"] = {
-		Name = "Arsenal",
+		Name = "Arsenal ~ alpha test",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/Arsenal/ArsenalAlpha.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Arsenal/ArsenalAlpha")
 	},
 	["1359573625"] = {
@@ -48,6 +48,10 @@ ZORKA.Games = {
 		Name = "Phantom Forces",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/Phantom/ClientPH.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Phantom/ClientPH.lua")
 	},
+	["113491250"] = {
+		Name = "Bad Business",
+		Script = ZORKA.Debug and readfile("ZorkaHUB/Bad%20Business/ClientBB.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Bad%20Business/ClientBB.lua")
+	},
 	["2619619496"] = {
 		Name = "Vape V4 ~ BedWars",
 		Script = ZORKA.Debug and readfile("VapeV4ForRoblox/NewMainScript.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua")
@@ -55,6 +59,10 @@ ZORKA.Games = {
 	["2162282815"] = {
 		Name = "Afo ~ Rush Point",
 		Script = ZORKA.Debug and readfile("script/rush_point.lua") or game:HttpGetAsync("https://hub.afo.xyz/script/rush_point.lua")
+	},
+	["2194874153"] = {
+		Name = "Jailbird ~ beta",
+		Script = ZORKA.Debug and readfile("main/Jailbird-Ware%20Main.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/Enviie/Cypher-X-Jailbird-Ware/main/Jailbird-Ware%20Main.lua")
 	}
 }
 
