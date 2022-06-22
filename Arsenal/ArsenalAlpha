@@ -1,23 +1,7 @@
 
 ([[
-                This script has been licensed using Luauth
-            Unauthorized distribution of this script is forbidden.
-      Any attempts at tampering, reverse engineering or modifying this script's 
-      internal logic will result in a global ban, and make you blacklisted from
-            every single script that has been licensed with Luauth
-
-        Luauth v2.2 for Roblox, #1 lua whitelisting system by Federal#9999
-				   https://luauth.xyz/
-
-      ____        _ _         _   _       _       ____       _        
-     | __ )  ___ | | |_ ___  | | | |_   _| |__   | __ )  ___| |_ __ _ 
-     |  _ \ / _ \| | __/ __| | |_| | | | | '_ \  |  _ \ / _ \ __/ _` |
-     | |_) | (_) | | |_\__ \ |  _  | |_| | |_) | | |_) |  __/ || (_| |
-     |____/ \___/|_|\__|___/ |_| |_|\__,_|_.__/  |____/ \___|\__\__,_|
-                                                                      
-
-                                                     
-                 Script ID: 3ff4dda1021bf1df50bc74e977cdeea9
+ZorkaHub New arsenal pasta :b
+GLHF
 ]])
 
 
@@ -3075,16 +3059,16 @@ W:Button("ZoraX",function()
     print("Button Pressed")
 end)
 W:Button("LTW",function()
-    setclipboard("https://discord.gg/zbnGJU6Att")
+    setclipboard("https://discord.gg/mx6AFxfGa")
 end)
 W:Button("-----",function()
-    setclipboard("https://discord.gg/zbnGJU6Att")
+    setclipboard("https://discord.gg/mx6AFxfGa")
 end)
 W:Button("ゾルカ",function()
-    setclipboard("https://discord.gg/zbnGJU6Att")
+    setclipboard("https://discord.gg/mx6AFxfGa")
 end)
 W:Button("❤️❤️❤️❤️",function()
-    setclipboard("https://discord.gg/zbnGJU6Att")
+    setclipboard("https://discord.gg/mx6AFxfGa")
 end)
 
 --[[
