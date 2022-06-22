@@ -59,10 +59,6 @@ ZORKA.Games = {
 	["2162282815"] = {
 		Name = "Afo ~ Rush Point",
 		Script = ZORKA.Debug and readfile("script/rush_point.lua") or game:HttpGetAsync("https://hub.afo.xyz/script/rush_point.lua")
-	},
-	["2194874153"] = {
-		Name = "Jailbird ~ beta",
-		Script = ZORKA.Debug and readfile("main/Jailbird-Ware%20Main.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/Enviie/Cypher-X-Jailbird-Ware/main/Jailbird-Ware%20Main.lua")
 	}
 }
 
