@@ -604,7 +604,7 @@ local SaveManager = {} do
 end
 
 local Window = UI:CreateWindow({
-    Title = string.format('ZORKA - funky friday - version 1.1 | updated: %s', metadata.version, metadata.updated),
+    Title = string.format('ZORKA - funky friday - version 1.1 | updated: %s', metadata.updated),
     AutoShow = true,
     
     Center = true,
