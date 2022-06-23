@@ -674,7 +674,7 @@ Groups.Misc = Tabs.Miscellaneous:AddRightGroupbox('Miscellaneous')
     Groups.Misc:AddDivider()
     Groups.Misc:AddButton('Unload script', function() pcall(shared._unload) end)
     Groups.Misc:AddButton('Copy discord', function()
-        if pcall(setclipboard, "https://wally.cool/discord") then
+        if pcall(setclipboard, "https://discord.com/invite/mx6AFxfGa4") then
             UI:Notify('Successfully copied discord link to your clipboard!', 5)
         end
     end)
