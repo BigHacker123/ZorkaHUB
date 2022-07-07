@@ -46,7 +46,7 @@ ZORKA.Games = {
 	},
 	["113491250"] = {
 		Name = "Phantom Forces",
-		Script = ZORKA.Debug and readfile("ZorkaHUB/Phantom/ClientPH.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Phantom/ClientPH.lua")
+		Script = ZORKA.Debug and readfile("ZorkaHUB/Phantom/PHalpha.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Phantom/PHalpha.lua")
 	},
 	["2404080894"] = {
 		Name = "FunkyFriday",
