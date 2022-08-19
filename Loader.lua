@@ -36,6 +36,10 @@ ZORKA.Games = {
 		Name = "Counter Blox",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/CounterBlox/ClientCB.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/CounterBlox/ClientCB.lua")
 	},
+	["3681951220"] = {
+		Name = "Counter Blox",
+		Script = ZORKA.Debug and readfile("ZorkaHUB/CounterBlox/ClientCB.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/CounterBlox/ClientCB.lua")
+	},
 	["111958650"] = {
 		Name = "Arsenal ~ alpha test",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/Arsenal/ArsenalAlpha.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Arsenal/ArsenalAlpha")
