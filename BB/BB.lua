@@ -318,13 +318,13 @@ local Window = ZORKA.Utilities.UI:Window({
             CrosshairSection:Slider({Name = "Gap",Flag = "Mouse/Crosshair/Gap",Min = 0,Max = 10,Value = 2})
         end
         local CreditsSection = SettingsTab:Section({Name = "Credits",Side = "Right"}) do
-            CreditsSection:Label({Text = "This script was made by AlexR32#0157"})
+            CreditsSection:Label({Text = "This script was made by ZuhuInc."})
             CreditsSection:Divider()
-            CreditsSection:Label({Text = "Thanks to Jan for awesome Background Patterns"})
-            CreditsSection:Label({Text = "Thanks to Infinite Yield Team for Server Hop and Rejoin"})
-            CreditsSection:Label({Text = "Thanks to Blissful for Offscreen Arrows"})
-            CreditsSection:Label({Text = "Thanks to coasts for Universal ESP"})
-            CreditsSection:Label({Text = "Thanks to el3tric for Bracket V2"})
+            CreditsSection:Label({Text = "Special Thanks To Zorax"})
+            CreditsSection:Label({Text = "Special Thanks To LTW."})
+            CreditsSection:Label({Text = "Special Thanks To IceQbe."})
+            CreditsSection:Divider()
+            CreditsSection:Label({Text = "ZØRKA ~ ゾルカ"})
             CreditsSection:Label({Text = "❤️ ❤️ ❤️ ❤️"})
         end
     end
