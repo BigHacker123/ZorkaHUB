@@ -52,6 +52,14 @@ ZORKA.Games = {
 		Name = "Phantom Forces",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/Phantom/PHalpha.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/VoidMasterX/strawhook/main/script.lua")
 	},
+	["358276974"] = {
+		Name = "Apocalypse Rising 2",
+		Script = ZORKA.Debug and readfile("ZorkaHUB/AR2/AR2.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/AR2/AR2.lua")
+	},
+	["1168263273"] = {
+		Name = "Bad Business",
+		Script = ZORKA.Debug and readfile("ZorkaHUB/Bad%20Business/ClientBB.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Bad%20Business/ClientBB.lua")
+	},
 	["2404080894"] = {
 		Name = "FunkyFriday",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/Funky-Friday/ClientFF.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Funky-Friday/ClientFF.lua")
