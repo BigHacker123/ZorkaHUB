@@ -44,7 +44,7 @@ ZORKA.Games = {
 		Name = "Arsenal ~ alpha test",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/Arsenal/ArsenalAlpha.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/Arsenal/ArsenalAlpha")
 	},
-	["1359573625"] = {
+	["3722715121"] = {
 		Name = "Deep Woken",
 		Script = ZORKA.Debug and readfile("ZorkaHUB/DeepWoken/ClientDW.lua") or game:HttpGetAsync("https://raw.githubusercontent.com/ZuhuInc/ZorkaHUB/main/DeepWoken/ClientDW.lua")
 	},
